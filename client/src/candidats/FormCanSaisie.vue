@@ -4,8 +4,11 @@
       <div class="container">
         <p class="h2 dc-page-title">Dossier de compétences</p>
       </div>
-      <div v-if="errormsg" class="alert alert-danger alert-dismissible fade show">
-        <strong>Error!</strong> <br/>{{ errormsg }}
+      <div
+        v-if="errormsg"
+        class="alert alert-danger alert-dismissible fade show"
+      >
+        <strong>Error!</strong> <br />{{ errormsg }}
       </div>
       <h5>{{ errormsg }}</h5>
       <div class="container dc-form">
@@ -33,21 +36,19 @@
           </div>
           <div class="row dc-section">
             <div class="col">
-              <Certification
-                :certifications="dc.document.certifications"
-              />
+              <Certification :certifications="dc.document.certifications" />
             </div>
             <div class="col">
               <Language :languages="dc.document.languages" />
             </div>
           </div>
 
-          <ExperiencePro :experiences="dc.document.experiences" :xpAddedCounter=0 />
-          <ExperiencePerso :projects="dc.document.projects" :xpAddedCounter=0 />
+           <ExperiencePro :experiences="dc.document.experiences" :xpAddedCounter=0 />
+         <!--   <ExperiencePerso :projects="dc.document.projects" :xpAddedCounter=0 /> -->
 
           <div class="container dc-section">
             <div class="row align-items-center dc-syn-item">
-              <div class="col col-2"> 
+              <div class="col col-2">
                 <label class="col-form-label" for="syn_env"
                   >Environnement</label
                 >
@@ -156,7 +157,6 @@ import urldc from "../_helpers/urllist.js";
 import axios from "axios";
 import FormData from "./FormData";
 
-
 export default {
   components: {
     dcIdentity,
@@ -204,7 +204,7 @@ export default {
   },*/
   created() {
     try {
-      this.documentId =this.$route.params.id;
+      this.documentId = this.$route.params.id;
       console.log("Iam here");
       this.getDC(this.$route.params.id);
       console.log("data: " + this.form);
@@ -226,7 +226,7 @@ export default {
     },
     save(dc) {
       try {
-        alert("idwork: "+ this.documentId)
+        alert("idwork: " + this.documentId);
         const status = 2;
         FormData.save(this.$route.params.id, dc.document, document, status);
         location.reload();
@@ -234,13 +234,12 @@ export default {
         this.errormsg = err;
       }
     },
-    saveAndClose(dc)
-    {
+    saveAndClose(dc) {
       try {
-        alert("idwork: "+ this.documentId)
+        alert("idwork: " + this.documentId);
         const status = 3;
         FormData.save(this.$route.params.id, dc.document, document, status);
-        this.$router.push({ name: "PageEnd"})
+        this.$router.push({ name: "PageEnd" });
       } catch (err) {
         this.errormsg = err;
       }

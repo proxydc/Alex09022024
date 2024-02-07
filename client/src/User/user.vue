@@ -31,7 +31,7 @@
                 <td>{{ acRow.status_name }}</td>
                 <td>{{ acRow.tags }}</td>
                 <td>
-                  <a class="btn btn-success mx-2" :href="'/editDC/' + acRow.id">
+               <!--   <a class="btn btn-success mx-2" :href="'/editDC/' + acRow.id">
                     Edit
                   </a>
                   <button
@@ -40,7 +40,7 @@
                     @click="deleteDC(acRow.id)"
                   >
                     Delete
-                  </button>
+                  </button>-->
                   <a
                     class="btn btn-outline-primary btn-sm"
                     :href="'/formCandidatSaisie/' + acRow.id"
@@ -53,13 +53,13 @@
                     src="../assets/copyimage.png"
                     @click="CopyUrl(acRow.id)"
                   />
-                  <a
+                <!--  <a
                     class="btn btn-outline-primary btn-sm mx-2"
                     :href="'/dcDownload/' + acRow.id"
                     target="_blank"
                   >
                     Download
-                  </a>
+                  </a>-->
                 </td>
               </tr>
             </tbody>
